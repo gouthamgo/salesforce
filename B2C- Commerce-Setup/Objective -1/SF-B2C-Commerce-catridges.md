@@ -3,7 +3,7 @@
 - A framework for the site desgin 
 - CLient/ Sever desgin to offer SAS products 
 
-** Lets understand what catridges are **
+* Lets understand what catridges are
 
 ## Whats a Cartridge?
 
@@ -13,5 +13,5 @@
 
 ![catridges](/images/catridges.png)
 
-** Generic Catridegs ==> **
-** Application specific catridges ==> **
+* Generic Catridegs ==> 
+* Application specific catridges ==> 
