@@ -18,4 +18,4 @@ function person(fname,lname){
 let person1 = new person('Rodi', 'last');
 console.log(person1.firstName),
 console.log(person1.getDetails_noaccess);
-console.log(person1.getDetails_access());
+console.log(person1.getDetails_access);
