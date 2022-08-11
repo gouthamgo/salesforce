@@ -20,3 +20,4 @@ let person = {
 
 console.log(person.getFunction());
 console.log(person.phoneNumber.landline);
+
