@@ -29,3 +29,8 @@ Javascript doesnt have classes rather it defines behaviour using a constructor f
 - The process of wrapping properties and functions within a single unit is known as encapsulation.
 - Sometimes encapsulation refers to hiding of data or data Abstraction
 ``  There are no access modifiers in Javascript to restict the scope of the variable  but there are certain ways by which we can restrict the scope of the variables wihin the class/object``
+
+## Inheritance
+
+- It is a concept in which some properties and methods of an Object are being used by another Object. 
+- IN Javascript the objects inherits objects 
