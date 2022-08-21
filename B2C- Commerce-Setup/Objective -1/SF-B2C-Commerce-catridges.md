@@ -43,3 +43,4 @@ Run the storefront application to test changes.
 
 It’s best practice to extend or override the base cartridges to streamline the development process and ongoing maintenance.
 ```
+@https://resources.docs.salesforce.com/240/latest/en-us/sfdc/pdf/salesforce_winter23_release_notes.pdf
