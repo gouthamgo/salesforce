@@ -1,0 +1,8 @@
+.slds-checkbox__faux {
+    border-color: rgb(216, 221, 230);
+    background: white;
+}
+
+.slds-checkbox__faux:after {
+    color: rgb(0, 112, 210);
+}
