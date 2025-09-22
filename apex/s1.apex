@@ -25,3 +25,23 @@ for(Account acc: accounts){
 
 
 
+
+
+/*
+
+>10k closed 
+- List of opportunties -- find all the ones >10k
+
+various layers or stages --> check for StageName field to know the status 
+
+*/
+
+
+List<Opportunity> allDeals = [SELECT Amount from Opportunity];
+
+for(Opportunity d: allDeals){
+    if(d.Amount >100000){
+        bigDeals.add(d);
+    }
+}
+
