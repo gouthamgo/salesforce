@@ -45,3 +45,21 @@ for(Opportunity d: allDeals){
     }
 }
 
+
+/*
+to identify big accounts
+*/
+
+
+List<Account> allAccounts = [SELECT Industry, AnnualRevenue FROM Account];
+List<Account> bigTechAccounts = new List<Account>();
+
+for(Account a: acc){
+    if(a.Industry == 'Technology' && a.AnnualRevenue == '1000000'){
+        bigTechAccounts.add(a)
+    }
+}
+
+
+
+
