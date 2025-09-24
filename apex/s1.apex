@@ -25,3 +25,54 @@ for(Account acc: accounts){
 
 
 
+
+
+/*
+
+>10k closed 
+- List of opportunties -- find all the ones >10k
+
+various layers or stages --> check for StageName field to know the status 
+
+*/
+
+
+List<Opportunity> allDeals = [SELECT Amount from Opportunity];
+
+for(Opportunity d: allDeals){
+    if(d.Amount >100000){
+        bigDeals.add(d);
+    }
+}
+
+
+/*
+to identify big accounts
+*/
+
+
+List<Account> allAccounts = [SELECT Industry, AnnualRevenue FROM Account];
+List<Account> bigTechAccounts = new List<Account>();
+
+for(Account a: acc){
+    if(a.Industry == 'Technology' && a.AnnualRevenue == '1000000'){
+        bigTechAccounts.add(a)
+    }
+}
+
+
+
+
+
+//  initalise or store some value in the variable 
+// List<VariableType> variableName = <SOQL query> or new List<VariableType>();
+
+
+/*
+
+TTriggers - Automatic
+Controller Methods - Manual 
+Async Jobs - background 
+
+*/
+
