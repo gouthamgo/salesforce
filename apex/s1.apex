@@ -63,3 +63,16 @@ for(Account a: acc){
 
 
 
+
+//  initalise or store some value in the variable 
+// List<VariableType> variableName = <SOQL query> or new List<VariableType>();
+
+
+/*
+
+TTriggers - Automatic
+Controller Methods - Manual 
+Async Jobs - background 
+
+*/
+
