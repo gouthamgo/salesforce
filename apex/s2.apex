@@ -117,3 +117,70 @@ public class findOpportunties{
     }
 
 }
+
+
+//==========================================
+
+
+Account newAccount = new Account();
+newAccount.Name = 'ACME'
+newAccount.Industry = 'Tech'
+
+insert newAccount;
+
+System.debug(newAccount.Id);
+
+// ===================
+
+/*
+create primary contact from every account of anuual revenue of >50k 
+*/
+
+
+List<Account> allAccounts = [SELECT Id, Name, AnnualRevenue FROM Account];
+
+List<Account> filterAccs = new List<Account>();
+
+for(Account acc: allAccounts){
+    if(acc.AnnualRevenue > 50000){
+        filterAccs.add(acc)
+    }
+}
+// now i got my filtered accounts
+
+List<Contact> newContacts = new List<Contact>();
+for(Account acc: filterAccs){
+    Contact newContact = new Contact();
+    newContact.LastName = 'Primary Contact';
+    newContact.AccountId = acc.Id;
+    newContacts.add(newContact);
+}
+
+insert newContacts;
+
+
+//===================================================
+
+/*
+Opportunites >100k
+StageName == High Value to be set 
+
+*/
+
+
+public static void markHighOpps(){
+
+    // Query
+    List<Opportunity> bigOpps = [SELECT Id, Amount, StageName FROM Opportunity WHERE Amount > 100000]
+
+    for(Opportunity opp: bigOpps){
+        opp.StageName = 'High Value';
+    }
+
+    update bigOpps;
+
+}
+
+
+/// ===================================
+
