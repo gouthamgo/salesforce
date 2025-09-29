@@ -69,4 +69,51 @@ String accountName = accountNameById.get(someAccountID);
     contactByAccountId.get(con.AccountId).add(con);// add this contact to the accoutns list 
  }
 
- 
+
+//===========================================
+
+/*
+
+Opportuniteis > 50k
+stage - proposal 
+want to know the account name of each of these opportunities 
+
+*/
+
+// define class - static cz i dont return anything
+public class findOpportunties{
+
+    public static void findOpportunties(){
+
+    
+    List<Opportunity> allOpps = [SELECT Id, Name, Amount, StageName, AccountId FROM Opportunity];
+    List<Opportunity> filterOpps = new List<Opportunity>();
+
+    for(Opportunity opp: allOpps){
+        if(opp.Amount > 500000 && opp.StageName == 'proposal'){
+            filterOpps.add(opp);
+        }
+    }
+
+    // collected all the accountIds
+    Set<Id> accountIds = new Set<Id>();
+    for(Opportunity opp: filterOpps){
+        accountIds.add(opp.AccountId)
+    }
+
+    List<Account> accounts = [SELECT Id, Name FROM Account WHERE Id IN:accountIds];
+
+    Map<Id, String> accountNameById = new Map<Id, String>();
+
+    for(Account acc: accounts){
+        accountNameById.put(acc.Id, acc.Name)
+    }
+
+    for(Opportunity opp: filterOpps){
+        String accountName = accountNameById.get(opp.AccountId);
+        System.debug(opp.Name + '- Account' + accountName)
+    }
+
+    }
+
+}
