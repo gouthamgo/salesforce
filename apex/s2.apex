@@ -151,6 +151,7 @@ for(Account acc: allAccounts){
 List<Contact> newContacts = new List<Contact>();
 for(Account acc: filterAccs){
     Contact newContact = new Contact();
+    
     newContact.LastName = 'Primary Contact';
     newContact.AccountId = acc.Id;
     newContacts.add(newContact);
@@ -183,4 +184,43 @@ public static void markHighOpps(){
 
 
 /// ===================================
+
+List<Contact> oldContacts = [SELECT Id FROM Contact WHERE CreatedDate < LAST_YEAR];
+
+delete oldContacts;
+
+// ==========================
+
+/* Relationship Queries 
+
+Parent to child queries --> One Account --> Many Contacts 
+*/
+
+
+Account acc = [SELECT Id,Name, (SELECT Id, LastName FROM Contacts) FROM LIMIT 1];
+
+List<Contact> contacts = acc.Contacts;
+
+
+// child to parent 
+
+List<Contact> contacts = [SELECT Id, LastName, Account.Name, Account.Industry FROM Contact];
+
+for(Contact con: contacts){
+    System.debug(con.LastName + 'works at' + con.Account.Name);
+}
+
+
+//==========================================
+
+
+/*
+find acconts --> revenue > 20k in Tech Industry 
+for each of those accounts - get all their current contacts 
+create a copy of each contact ( same last name + email but add "-Backup" to LastName)
+Link the new copied contacts to the same accounts 
+
+
+*/
+
 
