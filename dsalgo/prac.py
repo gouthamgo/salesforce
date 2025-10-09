@@ -298,3 +298,140 @@ print(merge)  # Output: [1, 2, 2, 3, 5, 6]
 
 
 
+
+
+# ===========================================================
+
+
+def is_valid(s):
+    matches = {
+        ')': '(',
+        '}':'{',
+        ']':'['
+    }
+
+    stack =[]
+
+    for char in s:
+        if char in matches:
+            if len(stack) == 0:
+                return False
+            if stack[-1] == matches[char]:
+                stack.pop()
+            else: 
+                return False
+        else:
+            stack.append(char)
+    return len(stack) == 0
+
+#  basically we check if the stack has anything or not , compare with the last element
+
+
+
+
+
+
+
+# ===============================
+
+
+'''
+Majority Element 
+Given an array --> find the element that appears more than n/2 times 
+
+think > check if something is bigger than len(nums)/2 ==> pattern to remember 
+'''
+
+def majority(nums):
+
+    count = {}
+
+    for num in nums:
+        count[num] = count.get(num,0)+1
+    
+    print(count)
+
+    for num,freq in count.items():
+        print(freq)
+        if freq > len(nums)/ 2:
+            return num
+ 
+
+
+print(majority([3,2,3]))
+
+
+'''
+Missing number 
+Given an array containing n disctinct numbers from 0 to n --> find the missing number 
+
+pattern ==>
+'''
+
+def missing(arr):
+    
+
+
+
+
+
+print(missing([3,0,1]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ====================================================
+
+
+'''
+Opps --> organises code into objects - represents real world entities each containing data (attributes) and behaviour(method)
+
+Abstraction, Encapsulation , Classes , Objects, Inheritance, Polymoirphism 
+
+Time COmplexity --> describes the amount of time necessary to execute an algorithm
+
+Space Complexity  --> describes amount of memory or space utilized by an algorithm / program  
+
+Big O -- helps us understand how the performance of an algorithm changes as the size of the input grows , providing a simple way to compare and analyse different algorithm's efficiency 
+
+
+O(1) --> Constant --> time taken remains constant regardless of input size 
+
+O(logn N) --> Logarithmic --> Time taken increases logarithmically as input size grows. Operations are typically halved at each step. Time increases linearly as N goes up exponentially. 
+
+O(N) --> Linear
+
+O(N log N) --> Linearithmic
+
+O(N ^2) --> Quadratic 
+
+O(2^N) --> exponential
+
+O(N!) --> Factorial 
+
+'''
+
+
+
+
+
+
+
+
+
